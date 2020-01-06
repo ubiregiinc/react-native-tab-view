@@ -7,6 +7,7 @@ import {
   I18nManager,
   PanResponder,
   StyleSheet,
+  ScrollView,
   View,
   Platform,
 } from 'react-native';
@@ -263,7 +264,7 @@ export default class PagerPan<T: *> extends React.Component<Props<T>> {
           const focused = i === navigationState.index;
 
           return (
-            <View
+            <ScrollView
               key={route.key}
               testID={this.props.getTestID({ route })}
               style={
@@ -271,7 +272,7 @@ export default class PagerPan<T: *> extends React.Component<Props<T>> {
               }
             >
               {focused || width ? child : null}
-            </View>
+            </ScrollView>
           );
         })}
       </Animated.View>
